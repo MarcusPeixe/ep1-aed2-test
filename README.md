@@ -15,9 +15,11 @@ Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar os
 seguintes comandos no bash:
 
 ```bash
+# O seguinte comando baixa o arquivo main.c diretamente do GitHub
 curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main.c"
 # No proximo comando troque NOME_DO_SEU_ARQUIVO.cpp pelo nome do seu arquivo
-sed -i 's/arquivo.cpp/NOME_DO_SEU_ARQUIVO.cpp/' main.c 
+sed -i 's/arquivo.cpp/NOME_DO_SEU_ARQUIVO.cpp/' main.c
+# O seguinte comando compila e roda o programa
 gcc -Wall main.c -o test-main && ./test-main
 ```
 
