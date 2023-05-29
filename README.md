@@ -32,25 +32,25 @@ enunciado do EP.
 
 ## Grafos
 
-O teste 1 utiliza o seguinte grafo:
+O teste 1 utiliza o seguinte grafo (caminho mais curto: 1, 5, 4):
 
 ![Grafo para o teste 1](test1.drawio.png)
 
 ---
 
 O teste 2 utiliza um grafo muito denso para representar em imagem, mas o
-caminho de menor custo é uma única aresta (que liga o início direto ao
-fim).
+caminho de menor custo é uma única aresta (que liga o início 5 direto ao
+fim 12).
 
 ---
 
-O teste 3 utiliza o seguinte grafo:
+O teste 3 utiliza o seguinte grafo (caminho mais curto com chave: 9, 5, 7, 10, 4, 2):
 
 ![Grafo para o teste 3](test3.drawio.png)
 
 ---
 
-O teste 4 utiliza o seguinte grafo:
+O teste 4 utiliza o seguinte grafo (caminho mais curto: 5, 1, 2, 8, 4):
 
 ![Grafo para o teste 4](test4.drawio.png)
 
