@@ -4,10 +4,22 @@ Função main para testar o EP1 de AED2 (do professor Ivandré).
 
 ## Instruções
 
+Siga o passo a passo:
+
 1. Baixe o arquivo `main.c` para o diretório do seu código.
 2. Altere a segunda linha `#include "arquivo.cpp"` para o nome do arquivo do
    seu EP.
 3. Compile e rode o arquivo `main.c`
+
+Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar os
+seguintes comandos no bash:
+
+```bash
+curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main.c"
+# No proximo comando troque NOME_DO_SEU_ARQUIVO.cpp pelo nome do seu arquivo
+sed -i 's/arquivo.cpp/NOME_DO_SEU_ARQUIVO.cpp/' main.c 
+gcc -Wall main.c -o test-main && ./test-main
+```
 
 Alternativamente, caso você esteja em uma IDE onde é difícil trabalhar com
 mais de um arquivo, você pode copiar todo o conteúdo de `main.c` para o seu 
