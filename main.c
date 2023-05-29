@@ -1,5 +1,5 @@
 #define main main_
-#include "arquivo.cpp"
+#include "dijkstra.cpp"
 #undef main
 
 // COPIE E COLE TODO O CÓDIGO ABAIXO DESTA LINHA NO ARQUIVO DO SEU EP //////////
@@ -315,130 +315,6 @@ struct _tests test6()
     6, 7, 10,
     7, 9, 80,
   };
-  int inicio = 1, chave = 0, fim = 1;
-  int custo_esperado = 0;
-
-  return (struct _tests) {
-    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
-    .aberto = aberto, .ijpeso = ijpeso,
-    .inicio = inicio, .chave = chave, .fim = fim,
-    .custo_esperado = custo_esperado,
-    .descricao =
-      "Grafo do enunciado (inicio = 1, sem chave, fim = 1)\n"
-      "testando um caso onde inicio = fim, inicio esta trancado, sem chave.",
-  };
-}
-
-struct _tests test7()
-{
-  static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1,
-  };
-  static int ijpeso[] = {
-    1, 2, 30,
-    1, 3, 20,
-    2, 6, 20,
-    2, 7, 30,
-    3, 4, 20,
-    3, 7, 80,
-    4, 9, 80,
-    5, 8, 10,
-    6, 7, 10,
-    7, 9, 80,
-  };
-  int inicio = 1, chave = 0, fim = 7;
-  int custo_esperado = -1;
-
-  return (struct _tests) {
-    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
-    .aberto = aberto, .ijpeso = ijpeso,
-    .inicio = inicio, .chave = chave, .fim = fim,
-    .custo_esperado = custo_esperado,
-    .descricao =
-      "Grafo do enunciado (inicio = 1, sem chave, fim = 7)\n"
-      "testando um caso onde inicio esta trancado, sem chave.",
-  };
-}
-
-struct _tests test8()
-{
-  static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1,
-  };
-  static int ijpeso[] = {
-    1, 2, 30,
-    1, 3, 20,
-    2, 6, 20,
-    2, 7, 30,
-    3, 4, 20,
-    3, 7, 80,
-    4, 9, 80,
-    5, 8, 10,
-    6, 7, 10,
-    7, 9, 80,
-  };
-  int inicio = 1, chave = 2, fim = 7;
-  int custo_esperado = -1;
-
-  return (struct _tests) {
-    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
-    .aberto = aberto, .ijpeso = ijpeso,
-    .inicio = inicio, .chave = chave, .fim = fim,
-    .custo_esperado = custo_esperado,
-    .descricao =
-      "Grafo do enunciado (inicio = 1, chave = 2, fim = 7)\n"
-      "testando um caso onde inicio esta trancado, chave inacessivel.",
-  };
-}
-
-struct _tests test9()
-{
-  static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1,
-  };
-  static int ijpeso[] = {
-    1, 2, 30,
-    1, 3, 20,
-    2, 6, 20,
-    2, 7, 30,
-    3, 4, 20,
-    3, 7, 80,
-    4, 9, 80,
-    5, 8, 10,
-    6, 7, 10,
-    7, 9, 80,
-  };
-  int inicio = 1, chave = 1, fim = 7;
-  int custo_esperado = 60;
-
-  return (struct _tests) {
-    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
-    .aberto = aberto, .ijpeso = ijpeso,
-    .inicio = inicio, .chave = chave, .fim = fim,
-    .custo_esperado = custo_esperado,
-    .descricao =
-      "Grafo do enunciado (inicio = 1, chave = 1, fim = 7)\n"
-      "testando um caso onde inicio esta trancado, chave em inicio.",
-  };
-}
-
-struct _tests test10()
-{
-  static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1,
-  };
-  static int ijpeso[] = {
-    1, 2, 30,
-    1, 3, 20,
-    2, 6, 20,
-    2, 7, 30,
-    3, 4, 20,
-    3, 7, 80,
-    4, 9, 80,
-    5, 8, 10,
-    6, 7, 10,
-    7, 9, 80,
-  };
   int inicio = 3, chave = 4, fim = 2;
   int custo_esperado = 90;
 
@@ -454,7 +330,7 @@ struct _tests test10()
   };
 }
 
-struct _tests test11()
+struct _tests test7()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -485,7 +361,7 @@ struct _tests test11()
   };
 }
 
-struct _tests test12()
+struct _tests test8()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -516,7 +392,7 @@ struct _tests test12()
   };
 }
 
-struct _tests test13()
+struct _tests test9()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -547,7 +423,7 @@ struct _tests test13()
   };
 }
 
-struct _tests test14()
+struct _tests test10()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -578,39 +454,7 @@ struct _tests test14()
   };
 }
 
-struct _tests test15()
-{
-  static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1,
-  };
-  static int ijpeso[] = {
-    1, 2, 30,
-    1, 3, 20,
-    2, 6, 20,
-    2, 7, 30,
-    3, 4, 20,
-    3, 7, 80,
-    4, 9, 80,
-    5, 8, 10,
-    6, 7, 10,
-    7, 9, 80,
-  };
-  int inicio = 2, chave = 1, fim = 3;
-  int custo_esperado = 110;
-
-  return (struct _tests) {
-    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
-    .aberto = aberto, .ijpeso = ijpeso,
-    .inicio = inicio, .chave = chave, .fim = fim,
-    .custo_esperado = custo_esperado,
-    .descricao =
-      "Grafo do enunciado (inicio = 2, chave = 1, fim = 3)\n"
-      "testando um caso onde ha caminho para o fim, com chave, mas chave "
-      "esta numa sala trancada.",
-  };
-}
-
-struct _tests test16()
+struct _tests test11()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -641,7 +485,7 @@ struct _tests test16()
   };
 }
 
-struct _tests test17()
+struct _tests test12()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -672,7 +516,7 @@ struct _tests test17()
   };
 }
 
-struct _tests test18()
+struct _tests test13()
 {
   static int aberto[] = {
     0, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -703,6 +547,131 @@ struct _tests test18()
   };
 }
 
+struct _tests test14()
+{
+  static int aberto[] = {
+    0, 1, 1, 1, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 30,
+    1, 3, 20,
+    2, 6, 20,
+    2, 7, 30,
+    3, 4, 20,
+    3, 7, 80,
+    4, 9, 80,
+    5, 8, 10,
+    6, 7, 10,
+    7, 8, 20,
+    7, 9, 80,
+  };
+  int inicio = 7, chave = 4, fim = 5;
+  int custo_esperado = 230;
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do enunciado modificado (inicio = 2, chave = 8, fim = 4)\n"
+      "testando um caso onde nao ha caminho direto para o fim, apenas com "
+      "chave.",
+  };
+}
+
+struct _tests test15()
+{
+  static int aberto[] = {
+    0, 1, 1, 1, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 30,
+    1, 3, 20,
+    2, 6, 20,
+    2, 7, 30,
+    3, 4, 20,
+    3, 7, 80,
+    4, 9, 80,
+    5, 8, 10,
+    6, 7, 10,
+    7, 8, 20,
+    7, 9, 80,
+  };
+  int inicio = 5, chave = 4, fim = 7;
+  int custo_esperado = -1;
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do enunciado modificado (inicio = 2, chave = 8, fim = 4)\n"
+      "testando um caso onde nao ha caminho para lugar nenhum.",
+  };
+}
+
+struct _tests test16()
+{
+  static int aberto[] = {
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 30,
+    1, 3, 10,
+    2, 6, 20,
+    2, 7, 30,
+    3, 4, 20,
+    3, 7, 80,
+    4, 9, 80,
+    5, 8, 10,
+    6, 7, 10,
+    7, 9, 80,
+  };
+  int inicio = 7, chave = 6, fim = 4;
+  int custo_esperado = 90;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do enunciado modificado (inicio = 7, chave = 6, fim = 4)\n"
+      "caminho com chave eh mais rapido",
+  };
+}
+
+struct _tests test17()
+{
+  static int aberto[] = {
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 30,
+    1, 3, 30,
+    2, 6, 20,
+    2, 7, 30,
+    3, 4, 20,
+    3, 7, 80,
+    4, 9, 80,
+    5, 8, 10,
+    6, 7, 10,
+    7, 9, 80,
+  };
+  int inicio = 7, chave = 6, fim = 4;
+  int custo_esperado = 100;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do enunciado modificado (inicio = 7, chave = 6, fim = 4)\n"
+      "caminho sem chave eh mais rapido",
+  };
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -714,7 +683,7 @@ int main()
     test1(),  test2(),  test3(),  test4(),  test5(),
     test6(),  test7(),  test8(),  test9(),  test10(),
     test11(), test12(), test13(), test14(), test15(),
-    test16(), test17(), test18(),
+    test16(), test17(),
   };
 
   int const test_count = _countof(tests);
