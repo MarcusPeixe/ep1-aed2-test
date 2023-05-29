@@ -82,6 +82,13 @@ bool check_path(
       print_error(path, idx + 1, "Caminho passa por vertice inexistente");
       return false;
     }
+    else if (current == next) {
+      print_error(
+        path, idx + 1,
+        "Caminho passa por determinado vertice duas vezes"
+      );
+      return false;
+    }
     // if passed through key room, set unlocked to true
     if (current == chave) unlocked = true;
     // check if path goes through locked room illegally
@@ -722,22 +729,22 @@ int main()
     // verifica se o caminho esta correto
     int custo;
     if (check_path(teste, aberto, ijpeso, N, A, inicio, fim, chave, &custo)) {
-      if (custo != custo_esperado) {
-        printf("Custo %d diferente (esperado: %d)\n",
-          custo, custo_esperado);
-        if (custo < custo_esperado) {
-          printf(
-            "(Talvez seja preciso atualizar o custo esperado deste "
-            "caso de teste?)\n");
-        }
-        free_nodes(teste);
-        return 1; // fail
-      }
-      else if (custo == -1 && custo_esperado > -1) {
+      if (custo == -1 && custo_esperado > -1) {
         printf(
           "Esperado caminho de custo %d, mas programa "
           "retornou caminho vazio\n", custo_esperado
         );
+        free_nodes(teste);
+        return 1; // fail
+      }
+      else if (custo != custo_esperado) {
+        printf("Custo %d diferente (esperado: %d)\n",
+          custo, custo_esperado);
+        if (custo < custo_esperado || custo_esperado == -1) {
+          printf(
+            "(Talvez seja preciso atualizar o custo esperado deste "
+            "caso de teste?)\n");
+        }
         free_nodes(teste);
         return 1; // fail
       }
