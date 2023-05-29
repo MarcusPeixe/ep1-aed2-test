@@ -85,7 +85,7 @@ bool check_path(
     else if (current == next) {
       print_error(
         path, idx + 1,
-        "Caminho passa por determinado vertice duas vezes"
+        "Caminho tem dois vertices consecutivos iguais"
       );
       return false;
     }
