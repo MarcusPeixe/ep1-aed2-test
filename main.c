@@ -1,5 +1,5 @@
 #define main main_
-#include "arquivo.cpp"
+#include "dijkstra.cpp"
 #undef main
 
 // COPIE E COLE TODO O CÓDIGO ABAIXO DESTA LINHA NO ARQUIVO DO SEU EP //////////
@@ -85,7 +85,7 @@ bool check_path(
     // if passed through key room, set unlocked to true
     if (current == chave) unlocked = true;
     // check if path goes through locked room illegally
-    if (!unlocked && !aberto[next]) {
+    if (!unlocked && !aberto[next - 1]) {
       print_error(
         path, idx + 1,
         "Caminho passa por sala fechada sem ter antes obtido a chave"
@@ -129,7 +129,7 @@ void free_nodes(NO *nodes)
 struct _tests test1()
 {
   static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 0
+    1, 1, 1, 1, 1, 0
   };
   static int ijpeso[] = {
     1, 2, 14,
@@ -145,7 +145,7 @@ struct _tests test1()
   int custo_esperado = 15;
   
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -156,7 +156,7 @@ struct _tests test1()
 struct _tests test2()
 {
   static int aberto[] = {
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1
   };
   static int ijpeso[] = {
     1, 2, 15,
@@ -193,7 +193,7 @@ struct _tests test2()
   int custo_esperado = 19;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -204,7 +204,7 @@ struct _tests test2()
 struct _tests test3()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1
+    0, 1, 1, 0, 1, 1, 1, 1, 1, 1
   };
   static int ijpeso[] = {
     1, 2, 10,
@@ -228,7 +228,7 @@ struct _tests test3()
   int custo_esperado = 24;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -239,7 +239,7 @@ struct _tests test3()
 struct _tests test4()
 {
   static int aberto[] = {
-    0, 1, 1, 0, 1, 1, 1, 0, 1
+    1, 1, 0, 1, 1, 1, 0, 1
   };
   static int ijpeso[] = {
     1, 2, 8,
@@ -259,7 +259,7 @@ struct _tests test4()
   int custo_esperado = 39;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -270,7 +270,7 @@ struct _tests test4()
 struct _tests test5()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -288,7 +288,7 @@ struct _tests test5()
   int custo_esperado = 100;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -301,7 +301,7 @@ struct _tests test5()
 struct _tests test6()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -319,7 +319,7 @@ struct _tests test6()
   int custo_esperado = 0;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -332,7 +332,7 @@ struct _tests test6()
 struct _tests test7()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -350,7 +350,7 @@ struct _tests test7()
   int custo_esperado = -1;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -363,7 +363,7 @@ struct _tests test7()
 struct _tests test8()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -381,7 +381,7 @@ struct _tests test8()
   int custo_esperado = -1;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -394,7 +394,7 @@ struct _tests test8()
 struct _tests test9()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -412,7 +412,7 @@ struct _tests test9()
   int custo_esperado = 60;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -425,7 +425,7 @@ struct _tests test9()
 struct _tests test10()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -443,7 +443,7 @@ struct _tests test10()
   int custo_esperado = 90;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -457,7 +457,7 @@ struct _tests test10()
 struct _tests test11()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -475,7 +475,7 @@ struct _tests test11()
   int custo_esperado = -1;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -488,7 +488,7 @@ struct _tests test11()
 struct _tests test12()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -506,7 +506,7 @@ struct _tests test12()
   int custo_esperado = -1;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -519,7 +519,7 @@ struct _tests test12()
 struct _tests test13()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -537,7 +537,7 @@ struct _tests test13()
   int custo_esperado = 10;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -550,7 +550,7 @@ struct _tests test13()
 struct _tests test14()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -568,7 +568,7 @@ struct _tests test14()
   int custo_esperado = 110;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -581,7 +581,7 @@ struct _tests test14()
 struct _tests test15()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -599,7 +599,7 @@ struct _tests test15()
   int custo_esperado = 110;
 
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -613,7 +613,7 @@ struct _tests test15()
 struct _tests test16()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -630,7 +630,7 @@ struct _tests test16()
   int inicio = 2, chave = 2, fim = 3;
   int custo_esperado = 50;
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -644,7 +644,7 @@ struct _tests test16()
 struct _tests test17()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -661,7 +661,7 @@ struct _tests test17()
   int inicio = 2, chave = 3, fim = 3;
   int custo_esperado = 110;
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
@@ -675,7 +675,7 @@ struct _tests test17()
 struct _tests test18()
 {
   static int aberto[] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1,
   };
   static int ijpeso[] = {
     1, 2, 30,
@@ -692,7 +692,7 @@ struct _tests test18()
   int inicio = 2, chave = 8, fim = 4;
   int custo_esperado = 130;
   return (struct _tests) {
-    .N = _countof(aberto) - 1, .A = _countof(ijpeso) / 3,
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
     .aberto = aberto, .ijpeso = ijpeso,
     .inicio = inicio, .chave = chave, .fim = fim,
     .custo_esperado = custo_esperado,
