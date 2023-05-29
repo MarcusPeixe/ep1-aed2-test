@@ -15,11 +15,14 @@ Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar os
 seguintes comandos no bash:
 
 ```bash
-# O seguinte comando baixa o arquivo main.c diretamente do GitHub
+# Substitua o comando abaixo pelo nome do arquivo do seu EP
+ARQUIVO=nome_do_arquivo.cpp
+
+# O comando seguinte baixa o arquivo main.c diretamente do GitHub
 curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main.c"
-# No proximo comando troque NOME_DO_SEU_ARQUIVO.cpp pelo nome do seu arquivo
-sed -i 's/arquivo.cpp/NOME_DO_SEU_ARQUIVO.cpp/' main.c
-# O seguinte comando compila e roda o programa
+# O comando seguinte adapta a diretriz include para o seu EP
+sed -i 's/arquivo.cpp/$ARQUIVO/' main.c
+# O comando seguinte compila e roda o programa
 gcc -Wall main.c -o test-main && ./test-main
 ```
 
