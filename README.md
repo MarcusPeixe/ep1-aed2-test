@@ -56,8 +56,8 @@ O teste 4 utiliza o seguinte grafo (caminho mais curto: 5, 1, 2, 8, 4):
 
 ---
 
-A partir do teste 5, o grafo utilizado é o grafo de exemplo, e a única
-alteração é as posições dos vértices *início*, *chave*, e *fim*.
+A partir do teste 5, o grafo utilizado é o grafo de exemplo, e a principal alteração
+é as posições dos vértices *início*, *chave*, e *fim*.
 
 ![Grafo para o teste 3](test-example-graph.png)
 
