@@ -1,5 +1,5 @@
 #define main main_
-#include "dijkstra.cpp"
+#include "arquivo.cpp"
 #undef main
 
 // COPIE E COLE TODO O CÓDIGO ABAIXO DESTA LINHA NO ARQUIVO DO SEU EP //////////
