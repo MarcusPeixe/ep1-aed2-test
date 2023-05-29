@@ -32,7 +32,7 @@ enunciado do EP.
 
 ## Grafos
 
-O teste 1 utiliza o seguinte grafo (caminho mais curto: 1, 5, 4):
+O teste 1 utiliza o seguinte grafo (caminho mais curto: 1, 4, 5):
 
 ![Grafo para o teste 1](test1.drawio.png)
 
