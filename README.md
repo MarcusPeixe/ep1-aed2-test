@@ -22,10 +22,25 @@ O teste 1 utiliza o seguinte grafo:
 
 ![Grafo para o teste 1](test1.drawio.png)
 
+---
+
+O teste 2 utiliza um grafo muito denso para representar em imagem, mas o
+caminho de menor custo é uma única aresta (que liga o início direto ao
+fim).
+
+---
 
 O teste 3 utiliza o seguinte grafo:
 
 ![Grafo para o teste 3](test3.drawio.png)
+
+---
+
+O teste 4 utiliza o seguinte grafo:
+
+![Grafo para o teste 4](test4.drawio.png)
+
+---
 
 A partir do teste 5, o grafo utilizado é o grafo de exemplo, e a única
 alteração é as posições dos vértices *início*, *chave*, e *fim*.
