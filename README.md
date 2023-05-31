@@ -6,10 +6,10 @@ Função main para testar o EP1 de AED2 (do professor Ivandré).
 
 Siga o passo a passo:
 
-1. Baixe o arquivo `main.c` para o diretório do seu código.
+1. Baixe o arquivo `main-testes-EP.c` para o diretório do seu código.
 2. Altere a segunda linha `#include "arquivo.cpp"` para o nome do arquivo do
    seu EP.
-3. Compile e rode o arquivo `main.c`
+3. Compile e rode o arquivo `main-testes-EP.c`
 
 Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar o
 seguinte comando no bash:
@@ -23,15 +23,16 @@ Em seguida, copie e cole os seguintes comandos:
 
 ```bash
 # O comando seguinte baixa o arquivo main.c diretamente do GitHub
-curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main.c"
+curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main-testes-EP.c"
 # O comando seguinte adapta a diretriz include para o seu EP
-sed -i "s/arquivo.cpp/$ARQUIVO_TESTE/" main.c
+sed -i "s/arquivo.cpp/$ARQUIVO_TESTE/" main-testes-EP.c
+
 # O comando seguinte compila e roda o programa
-gcc -Wall main.c -o test-main && ./test-main
+gcc -Wall main-testes-EP.c -o main-testes && ./main-testes
 ```
 
 Alternativamente, caso você esteja em uma IDE onde é difícil trabalhar com
-mais de um arquivo, você pode copiar todo o conteúdo de `main.c` para o seu 
+mais de um arquivo, você pode copiar todo o conteúdo de `main-testes-EP.c` para o seu 
 arquivo, substituindo a sua main.
 
 Este código testa uma variedade de casos especiais no grafo-exemplo do
