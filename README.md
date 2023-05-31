@@ -11,17 +11,21 @@ Siga o passo a passo:
    seu EP.
 3. Compile e rode o arquivo `main.c`
 
-Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar os
-seguintes comandos no bash:
+Se você estiver em um ambiente Linux (incluindo o Replit), você pode usar o
+seguinte comando no bash:
 
 ```bash
 # Substitua o comando abaixo pelo nome do arquivo do seu EP
-ARQUIVO=nome_do_arquivo.cpp
+ARQUIVO_TESTE=nome_do_arquivo.cpp
+```
 
+Em seguida, copie e cole os seguintes comandos:
+
+```bash
 # O comando seguinte baixa o arquivo main.c diretamente do GitHub
 curl -O "https://raw.githubusercontent.com/MarcusPeixe/ep1-aed2-test/main/main.c"
 # O comando seguinte adapta a diretriz include para o seu EP
-sed -i 's/arquivo.cpp/$ARQUIVO/' main.c
+sed -i "s/arquivo.cpp/$ARQUIVO_TESTE/" main.c
 # O comando seguinte compila e roda o programa
 gcc -Wall main.c -o test-main && ./test-main
 ```
