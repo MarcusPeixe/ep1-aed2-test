@@ -763,5 +763,6 @@ int main()
     printf("===\n\n");
   }
 
+  printf("=== Todos os testes foram bem sucedidos!! ===\n");
   return 0; // all tests succeeded
 }
