@@ -51,6 +51,7 @@ a da chave, e a de fim.
 - Início = 1, Chave = 3, Fim = 9.
 - Salas fechadas = 2
 - Resposta: 1, 8, 9
+- Resposta: 1, 6, 7, 8, 9
 - Custo: 5
 
 ### Teste 2
