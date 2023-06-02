@@ -126,7 +126,7 @@ a da chave, e a de fim.
 
 O código possui ainda alguns testes antigos que foram utilizados antes dos testes
 oficiais serem disponibilizados. Estes testes são um pouco mais rígidos que os
-oficiais, mas ainda assim são interessantes de se analizar e verificar se o seu
+oficiais, mas ainda assim são interessantes de se analisar e verificar se o seu
 programa está *verdadeiramente* correto!
 
 O teste 1 utiliza o seguinte grafo (caminho mais curto: 1, 4, 5):
