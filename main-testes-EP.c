@@ -679,6 +679,366 @@ struct _tests test17()
   };
 }
 
+struct _tests test18()
+{
+  static int aberto[] = {
+    1, 0, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 1, chave = 3, fim = 9;
+  int custo_esperado = 5;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 1\n"
+      "(inicio = 1, chave = 3, fim = 9, fechadas = { 2 })\n",
+  };
+}
+
+struct _tests test19()
+{
+  static int aberto[] = {
+    1, 0, 1, 1, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 1, chave = 7, fim = 9;
+  int custo_esperado = 5;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 2\n"
+      "(inicio = 1, chave = 7, fim = 9, fechadas = { 2, 8 })\n",
+  };
+}
+
+struct _tests test20()
+{
+  static int aberto[] = {
+    1, 0, 1, 1, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 1, chave = 3, fim = 9;
+  int custo_esperado = 8;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 3\n"
+      "(inicio = 1, chave = 3, fim = 9, fechadas = { 2, 8 })\n",
+  };
+}
+
+struct _tests test21()
+{
+  static int aberto[] = {
+    1, 0, 1, 0, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 1, chave = 3, fim = 9;
+  int custo_esperado = 9;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 4\n"
+      "(inicio = 1, chave = 3, fim = 9, fechadas = { 2, 4, 8 })\n",
+  };
+}
+
+struct _tests test22()
+{
+  static int aberto[] = {
+    1, 1, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 9, chave = 7, fim = 4;
+  int custo_esperado = 4;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 5\n"
+      "(inicio = 9, chave = 7, fim = 4, fechadas = {})\n",
+  };
+}
+
+struct _tests test23()
+{
+  static int aberto[] = {
+    1, 0, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 9, chave = 7, fim = 4;
+  int custo_esperado = 7;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 6\n"
+      "(inicio = 9, chave = 7, fim = 4, fechadas = { 2 })\n",
+  };
+}
+
+struct _tests test24()
+{
+  static int aberto[] = {
+    0, 0, 1, 1, 1, 1, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 9, chave = 7, fim = 4;
+  int custo_esperado = 7;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 7\n"
+      "(inicio = 9, chave = 7, fim = 4, fechadas = { 1, 2 })\n",
+  };
+}
+
+struct _tests test25()
+{
+  static int aberto[] = {
+    1, 1, 1, 1, 1, 1, 1, 0, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 9, chave = 7, fim = 4;
+  int custo_esperado = 7;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 8\n"
+      "(inicio = 9, chave = 7, fim = 4, fechadas = { 8 })\n",
+  };
+}
+
+struct _tests test26()
+{
+  static int aberto[] = {
+    1, 0, 1, 1, 0, 0, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 8, chave = 3, fim = 6;
+  int custo_esperado = 10;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 9\n"
+      "(inicio = 8, chave = 3, fim = 6, fechadas = { 2, 5, 6 })\n",
+  };
+}
+
+struct _tests test27()
+{
+  static int aberto[] = {
+    0, 1, 1, 1, 0, 0, 1, 1, 1,
+  };
+  static int ijpeso[] = {
+    1, 2, 1,
+    1, 4, 2,
+    1, 6, 1,
+    1, 8, 4,
+    2, 3, 4,
+    2, 4, 2,
+    2, 8, 1,
+    2, 9, 5,
+    3, 4, 1,
+    3, 5, 1,
+    4, 5, 1,
+    5, 6, 2,
+    6, 7, 1,
+    7, 8, 2,
+    8, 9, 1,
+  };
+  int inicio = 8, chave = 3, fim = 6;
+  int custo_esperado = 7;
+
+  return (struct _tests) {
+    .N = _countof(aberto), .A = _countof(ijpeso) / 3,
+    .aberto = aberto, .ijpeso = ijpeso,
+    .inicio = inicio, .chave = chave, .fim = fim,
+    .custo_esperado = custo_esperado,
+    .descricao =
+      "Grafo do teste do professor, teste 10\n"
+      "(inicio = 8, chave = 3, fim = 6, fechadas = { 1, 5, 6 })\n",
+  };
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -687,10 +1047,12 @@ int main()
 {
   // all tests
   struct _tests tests[] = {
-    test1(),  test2(),  test3(),  test4(),  test5(),
+    /* test1(),  test2(),  test3(),  test4(),  test5(),
     test6(),  test7(),  test8(),  test9(),  test10(),
     test11(), test12(), test13(), test14(), test15(),
-    test16(), test17(),
+    test16(), test17(), */ test18(), test19(), test20(),
+    test21(), test22(), test23(), test24(), test25(),
+    test26(), test27(),
   };
 
   int const test_count = _countof(tests);
